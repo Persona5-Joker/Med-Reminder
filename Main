@@ -1,1 +1,23 @@
+import java.util.*;
 
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("How many medications do you take?: "); int num = scanner.nextInt();
+        int doses;
+
+        for (int i = 0; i < num; i++) {
+            System.out.print("List the medication: ");
+            String medication = scanner.next();
+
+            System.out.println("How many times doses do you have to take a day: "); doses = scanner.nextInt();
+            int leftOverDoses = (doses - 1);
+            System.out.println("You have " + leftOverDoses + " " + medication + " doses left");
+        }
+
+        System.out.println("Don't forget to take your medication!");
+        
+    }
+}
