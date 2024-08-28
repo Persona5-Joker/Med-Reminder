@@ -5,19 +5,22 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("How many medications do you take?: "); int num = scanner.nextInt();
+        System.out.print("How many medications do you take?: "); int num = scanner.nextInt();
         int doses;
+        String[] medication = new String[num];
 
-        for (int i = 0; i < num; i++) {
+        for (int i = 0; i < 1; i++) {
             System.out.print("List the medication: ");
-            String medication = scanner.next();
-
+            for (int j = 0; j < num; j++) {
+                medication[i] = scanner.next();
+            }
             System.out.println("How many times doses do you have to take a day: "); doses = scanner.nextInt();
             int leftOverDoses = (doses - 1);
-            System.out.println("You have " + leftOverDoses + " " + medication + " doses left");
+            System.out.println("You have " + leftOverDoses +" doses left of medication");
+
         }
 
         System.out.println("Don't forget to take your medication!");
-        
+
     }
 }
