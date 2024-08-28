@@ -1,5 +1,5 @@
 import java.util.*;
-
+import java.time.LocalTime;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,6 +8,8 @@ public class Main {
         System.out.print("How many medications do you take?: "); int num = scanner.nextInt();
         int doses;
         String[] medication = new String[num];
+        int time;
+        String amOrPm;
 
         for (int i = 0; i < 1; i++) {
             System.out.print("List the medication: ");
@@ -16,7 +18,10 @@ public class Main {
             }
             System.out.println("How many times doses do you have to take a day: "); doses = scanner.nextInt();
             int leftOverDoses = (doses - 1);
-            System.out.println("You have " + leftOverDoses +" doses left of medication");
+            System.out.println("What time did you take your medicine? "); time = scanner.nextInt();
+            System.out.print("AM or PM? "); amOrPm = scanner.next();
+            System.out.println("You have " + leftOverDoses + " doses left of medication.");
+
 
         }
 
