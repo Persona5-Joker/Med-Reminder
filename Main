@@ -24,16 +24,17 @@ public class Main {
             System.out.println("What time did you take your medicine? "); time = scanner.nextInt();
             System.out.print("AM or PM? "); amOrPm = scanner.next();
 
-            System.out.println("How many hours until you have to take the next dose (In seconds please!): "); int hoursToSeconds = scanner.nextInt() *3600;
+            System.out.println("How many hours until you have to take the next dose: "); int hoursToSeconds = scanner.nextInt() *3600;
             timer clock = new timer(hoursToSeconds);
             Thread thread = new Thread(clock);
 
             System.out.println("You have " + leftOverDoses + " doses left of medication.");
+
+            System.out.println("Don't forget to take your medication!");
             System.out.println("Time till next Dose of Medication: "); thread.start();
 
         }
 
-        System.out.println("Don't forget to take your medication!");
     }
 }
 
@@ -46,7 +47,13 @@ class timer implements Runnable{
 
     public void run() {
        for(int i = seconds; i >= 0; i--){
-            System.out.println(i);
+
+           int hours = i/3600;
+           int minutes = (i*3600)%60;
+           int seconds = i%60;
+
+           String timeFormat = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+           System.out.println(timeFormat);
 
             try{
                 Thread.sleep(1000);
