@@ -1,6 +1,8 @@
 import java.util.*;
 import java.time.LocalTime;
 
+
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -11,6 +13,7 @@ public class Main {
         int time;
         String amOrPm;
 
+
         for (int i = 0; i < 1; i++) {
             System.out.print("List the medication: ");
             for (int j = 0; j < num; j++) {
@@ -20,12 +23,37 @@ public class Main {
             int leftOverDoses = (doses - 1);
             System.out.println("What time did you take your medicine? "); time = scanner.nextInt();
             System.out.print("AM or PM? "); amOrPm = scanner.next();
-            System.out.println("You have " + leftOverDoses + " doses left of medication.");
 
+            System.out.println("How many hours until you have to take the next dose (In seconds please!): "); int hoursToSeconds = scanner.nextInt() *3600;
+            timer clock = new timer(hoursToSeconds);
+            Thread thread = new Thread(clock);
+
+            System.out.println("You have " + leftOverDoses + " doses left of medication.");
+            System.out.println("Time till next Dose of Medication: "); thread.start();
 
         }
 
         System.out.println("Don't forget to take your medication!");
+    }
+}
 
+class timer implements Runnable{
+    private int seconds;
+
+    public timer(int seconds) {
+        this.seconds = seconds;
+    }
+
+    public void run() {
+       for(int i = seconds; i >= 0; i--){
+            System.out.println(i);
+
+            try{
+                Thread.sleep(1000);
+            }
+            catch(Exception e){
+                System.out.println(e);
+            }
+       }
     }
 }
