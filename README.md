@@ -1,4 +1,5 @@
-Ongoing development of a medication reminder program (running, but not properly) 
+Ongoing development of a medication reminder program.
+Status: Running, still under development.
 
 Progress made so far: 
   - Program accepts input of medication, and the amount of doses.
